@@ -1,6 +1,7 @@
 # Cloud Developer ND Course 2: Design for Performance and Scalability
 
----
+*NB*: Please find all the required screenshots, diagrams, calculations and explanations were added to a new "Materials" folder.
+
 
 ## Project  Instructions
 
