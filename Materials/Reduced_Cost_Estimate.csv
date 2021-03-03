@@ -1,14 +1,14 @@
-"Rationale:
-
-Compared to the ""initial"" case, I would reduce the backend data ""digestion"" (processing) for 20% by the Application servers (decreased by 1 i.e. from 5 to 4) and) their Load Balancers (decreased by 1 i.e. from 3 down to 2), 
-as well as frontend cached data ""ingestion"" via CloudFront by the end-users (decreased by half, from 10 TB per month, to 5 TB per month) which would halve the monthly CloudFront costs.
-
-Compared to the ""initial"" case, I would also degrade the DB from Aurora MySQL to MySQL (same category though, r3.xlarge), which would be the main ""cost saver"",
-as well as reduce the number NAT Gateways - from 3 down to 2.
-
-Halving the frontend cached data ""ingestion"" via CloudFront would be done via bigger compression / smaller sizing of the media content (images and videos) served to the end-users (i.e. a bit lower quality of media served).
-Degrading the DB class + reducing the backend data ""digestion"" for 20% by the Application servers would mean a bit less variety (or less advanced) social-media app functionalities  which come from the processing / multi-dimensioning of the ""raw user data"".
-This again can be almost unnoticeable for the end-users, similar to the degraded media quality.
-
-
-NB: I assume around 1000 more USDs (on the top of the costs from the ""Reduced_Cost_Estimate.csv"" file) on a monthly basis for CloudFront costs, for around 10 TB/month ""data transfer out"" via HTTPS and ""Average Object Size"" of 100 KB, based on the (old) calculator (https://calculator.s3.amazonaws.com/index.html)"
+Group hierarchy,Region,Description,Service,Upfront,Monthly,First 12 months total,Currency,Configuration summary
+My Estimate,US East (N. Virginia),uca_project2_diagram1_vpc,Amazon Virtual Private Cloud (VPC),0,722.7,8672.40,USD,Number of NAT Gateways (2)
+My Estimate,US East (N. Virginia),uca_project2_diagram1_s3,S3 Intelligent - Tiering,0,791.66,9499.92,USD,S3 INT storage (25 TB per month)
+My Estimate,US East (N. Virginia),uca_project2_diagram1_ec2_webservers,Amazon EC2,8278.2,704.25,16729.20,USD,"Operating system (Linux), Quantity (6), Pricing strategy (EC2 Instance Savings Plans 1 Year Partial Upfront), Storage amount (30 GB), Instance type (c1.xlarge), General Purpose SSD (gp3) - IOPS (3000), General Purpose SSD (gp3) - Throughput (125 MBps)"
+My Estimate,US East (N. Virginia),uca_project2_diagram1_ec2_appservers,Amazon EC2,5799.12,492.86,11713.44,USD,"Operating system (Linux), Quantity (4), Pricing strategy (EC2 Instance Savings Plans 1 Year Partial Upfront), Storage amount (30 GB), Instance type (m3.2xlarge), General Purpose SSD (gp3) - IOPS (3000), General Purpose SSD (gp3) - Throughput (125 MBps)"
+My Estimate,US East (N. Virginia),uca_project2_diagram1_elb_webservers,Application Load Balancer,0,119.35,1432.20,USD,Number of Application Load Balancers (3)
+My Estimate,US East (N. Virginia),uca_project2_diagram1_elb_appservers,Application Load Balancer,0,616.85,7402.20,USD,Number of Application Load Balancers (2)
+My Estimate,US East (N. Virginia),uca_project2_diagram1_elasticip,Amazon Elastic IP,0,32.85,394.20,USD,"Number of EC2 instances (9), Number of EIPs per instance (2)"
+My Estimate,US East (N. Virginia),uca_project2_diagram1_rds,Amazon RDS for MySQL,4328,408,9224.00,USD,"Storage for each RDS instance (General Purpose SSD (gp2)), Storage amount (30 GB), Quantity (2), Instance type (db.r3.xlarge), Deployment option (Multi-AZ), Pricing strategy (Reserved 1yr Partial Upfront)"
+My Estimate,US East (N. Virginia),uca_project2_diagram1_cloudfront,Amazon CloudFront,0,1000,12000,USD,"I assume around 1000 more USDs on a monthly basis for CloudFront costs, for around 10 TB/month ""data transfer out"" via HTTPS and ""Average Object Size"" of 100 KB with 100% Edge location traffic distribution in USA, based on the (old) calculator (https://calculator.s3.amazonaws.com/index.html)"
+,,,,,,,,
+,,,,,,,,
+Acknowledgement,,,,,,,,
+"* AWS Pricing Calculator provides only an estimate of your AWS fees and doesn't include any taxes that might apply. Your actual fees depend on a variety of factors, including your actual usage of AWS services."
