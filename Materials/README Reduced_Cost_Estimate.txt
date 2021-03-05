@@ -1,14 +1,19 @@
 Rationale:
 
-Compared to the "initial" case, I would reduce the backend data "digestion" (processing) for 20% by the Application servers (decreased by 1 i.e. from 5 to 4) and) their Load Balancers (decreased by 1 i.e. from 3 down to 2), 
-as well as frontend cached data "ingestion" via CloudFront by the end-users (decreased by half, from 10 TB per month, to 5 TB per month) which would halve the monthly CloudFront costs.
+NB: I assume around 390 more USDs (on the top of the costs from the "Reduced_Cost_Estimate.csv" file) on a monthly basis for CloudFront costs, for around 4 TB/month "data transfer out" via HTTPS and "Average Object Size" of 100 KB, based on the (old) calculator (https://calculator.s3.amazonaws.com/index.html)
+This means I would reduce the frontend cached data "ingestion" via CloudFront by the end-users (decreased by 60% - from 10 TB per month down to 4 TB per month) which would halve the monthly CloudFront costs.
+Compared to the "initial" case, this halving of the frontend CloudFront-cached data "ingestion" would be compensated via bigger compression / smaller sizing of the media content (images and videos) served to the end-users (i.e. a bit lower quality of media served).
 
-Compared to the "initial" case, I would also degrade the DB from Aurora MySQL to MySQL (same category though, r3.xlarge), which would be the main "cost saver",
-as well as reduce the number NAT Gateways - from 3 down to 2.
+I would also degrade the DB from Aurora MySQL to MySQL (same category though, db.r3.large), which would be the main "cost saver".
+This would mean less performance and scalability on the DB backend.
+Degrading the DB type would mean a bit less variety (or less advanced) of social-media real-time functionalities (which come from the "massaging" / multi-dimensioning of the "raw user data").
+As of the DB scalability, it should not be a big issue because the main part of the ingested data will be ending in S3 buckets like media files.
+Additionaly, the smaller DB scalability can be compensated by smarter use of the storage on the servers and some other mechanisms, like data optimization and compression-at-rest.
 
-Halving the frontend cached data "ingestion" via CloudFront would be done via bigger compression / smaller sizing of the media content (images and videos) served to the end-users (i.e. a bit lower quality of media served).
-Degrading the DB class + reducing the backend data "digestion" for 20% by the Application servers would mean a bit less variety (or less advanced) social-media app functionalities  which come from the processing / multi-dimensioning of the "raw user data".
-This again can be almost unnoticeable for the end-users, similar to the degraded media quality.
+Compared to the "initial" case, I would halve (bring down to 50%) both the read and write "baseline" and "peak" rates of DynamoDB.
+This shouldn't reflect too much on the overall user-sessions performance as it can be partly compensated by moving part of that load to the Elasticache and CloudFront.
 
+Finally I would reduce the number of the frontend webservers by 25% (from 4 down to 3) which wouldn't reflect too much on the overall performance as it can be partly compensated by the Elasticache and smarter Load Balancing.
 
-NB: I assume around 1000 more USDs (on the top of the costs from the "Reduced_Cost_Estimate.csv" file) on a monthly basis for CloudFront costs, for around 10 TB/month "data transfer out" via HTTPS and "Average Object Size" of 100 KB, based on the (old) calculator (https://calculator.s3.amazonaws.com/index.html)
+Summarized - except for the "downgrading" of the RDS DB type, all other cost-optimizations are from the resources-redundant nature. 
+Considering the overall design with many different components, as well as their types / classes in this architecture, the application shouldn't suffer a lot from this lowered redundancy.

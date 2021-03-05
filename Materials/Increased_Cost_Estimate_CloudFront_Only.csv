@@ -1,8 +1,9 @@
-﻿Your Estimate,,,,
+﻿Your Estimate
 Service Type,Components,Region,Component Price,Service Price
-Amazon CloudFront Service,,,,"$1,796.98 "
-,Data Transfer Out:,Global,"$1,689.60 ",
-,Requests:,Global,$107.38 ,
-AWS Support (Business),,,,$179.70 
-,Support for all AWS services:,,$179.70 ,
-,,Total Monthly Payment:,,"$1,976.68 "
+Amazon CloudFront Service,,,,$2669.87
+,Data Transfer Out:,Global,$2508.8
+,Requests:,Global,$161.07
+AWS Support (Business),,,,$266.37
+,Support for all AWS services:,,$266.37
+,,Free Tier Discount:,,$-6.25
+,,Total Monthly Payment:,,$2929.99

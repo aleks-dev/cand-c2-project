@@ -1,14 +1,16 @@
 Group hierarchy,Region,Description,Service,Upfront,Monthly,First 12 months total,Currency,Configuration summary
-My Estimate,US East (N. Virginia),uca_project2_diagram1_vpc,Amazon Virtual Private Cloud (VPC),0,6110.1,73321.20,USD,Number of NAT Gateways (6)
+My Estimate,US East (N. Virginia),uca_project2_diagram1_vpc,Amazon Virtual Private Cloud (VPC),0,4073.4,48880.80,USD,Number of NAT Gateways (4)
 My Estimate,US East (N. Virginia),uca_project2_diagram1_s3,S3 Intelligent - Tiering,0,791.66,9499.92,USD,S3 INT storage (25 TB per month)
-My Estimate,US East (N. Virginia),uca_project2_diagram1_ec2_webservers,Amazon EC2,13797,1899.75,36594.00,USD,"Operating system (Linux), Quantity (10), Pricing strategy (EC2 Instance Savings Plans 1 Year Partial Upfront), Storage amount (600 GB), Instance type (c1.xlarge)"
-My Estimate,US East (N. Virginia),uca_project2_diagram1_ec2_appservers,Amazon EC2,8698.68,758.64,17802.36,USD,"Operating system (Linux), Quantity (6), Pricing strategy (EC2 Instance Savings Plans 1 Year Partial Upfront), Storage amount (45 GB), Instance type (m3.2xlarge)"
-My Estimate,US East (N. Virginia),uca_project2_diagram1_elb_webservers,Application Load Balancer,0,238.70999999999998,2864.52,USD,Number of Application Load Balancers (6)
-My Estimate,US East (N. Virginia),uca_project2_diagram1_elb_appservers,Application Load Balancer,0,1233.7,14804.40,USD,Number of Application Load Balancers (4)
-My Estimate,US East (N. Virginia),uca_project2_diagram1_elasticip,Amazon Elastic IP,0,182.5,2190.00,USD,"Number of EC2 instances (10), Number of EIPs per instance (6)"
-My Estimate,US East (N. Virginia),uca_project2_diagram1_rds,Amazon Aurora MySQL-Compatible,10000,3510.3199999999997,52123.84,USD,"Change records per statement (0.38), Nodes (4), Instance Type (db.r3.2xlarge), Instance Family (Memory optimized), Pricing Model (Reserved), Lease Offering Term (1yr), Purchase Option (Partial Upfront), Storage amount (5 TB), Additional backup storage (5 TB)"
-My Estimate,US East (N. Virginia),uca_project2_diagram1_cloudfront,Amazon CloudFront,0,2000,24000,USD,"I assume around 2000 more USDs on a monthly basis for CloudFront costs, for around 10 TB/month ""data transfer out"" via HTTPS and ""Average Object Size"" of 100 KB with 100% Edge location traffic distribution in USA, based on the (old) calculator (https://calculator.s3.amazonaws.com/index.html)"
-
-
+My Estimate,US East (N. Virginia),uca_project2_diagram1_ec2_webservers,Amazon EC2,2049.84,208.32,4549.68,USD,"Operating system (Linux), Quantity (6), Pricing strategy (EC2 Instance Savings Plans 1 Year Partial Upfront), Storage amount (50 GB), Instance type (c1.medium)"
+My Estimate,US East (N. Virginia),uca_project2_diagram1_ec2_appservers,Amazon EC2,2908.32,251.96,5931.84,USD,"Operating system (Linux), Quantity (4), Pricing strategy (EC2 Instance Savings Plans 1 Year Partial Upfront), Storage amount (30 GB), Instance type (m3.xlarge), General Purpose SSD (gp3) - IOPS (3000), General Purpose SSD (gp3) - Throughput (125 MBps)"
+My Estimate,US East (N. Virginia),uca_project2_diagram1_elb_webservers,Application Load Balancer,0,119.35,1432.20,USD,Number of Application Load Balancers (3)
+My Estimate,US East (N. Virginia),uca_project2_diagram1_elb_appservers,Application Load Balancer,0,616.85,7402.20,USD,Number of Application Load Balancers (2)
+My Estimate,US East (N. Virginia),uca_project2_diagram1_elasticip,Amazon Elastic IP,0,21.9,262.80,USD,"Number of EC2 instances (6), Number of EIPs per instance (2)"
+My Estimate,US East (N. Virginia),uca_project2_diagram1_rds,Amazon Aurora MySQL-Compatible,2500,5073.52,63382.24,USD,"Change records per statement (0.38), Nodes (2), Instance Type (db.r3.xlarge), Instance Family (Memory optimized), Pricing Model (Reserved), Lease Offering Term (1yr), Purchase Option (Partial Upfront), Storage amount (5 TB), Additional backup storage (5 TB)"
+My Estimate,US East (N. Virginia),uca_project2_diagram1_ecache,Amazon ElastiCache,8656,718.32,17275.84,USD,( 4 instances of type Redis  Memory optimized  cache r4.2xlarge  Reserved  Heavy Utilization  1yr )
+My Estimate,US East (N. Virginia),uca_project2_diagram1_ddb,DynamoDB provisioned capacity,25200,1777.1,46525.20,USD,"Average item size (all attributes) (200 KB), Write reserved capacity term (1 year), Read reserved capacity term (1 year), Data storage size (50 GB)"
+My Estimate,US East (N. Virginia),uca_project2_diagram1_cloudfront,Amazon CloudFront,0,2930,35000,USD,"I assume around 3000 more USDs on a monthly basis for CloudFront costs, for around 10 TB/month ""data transfer out"" via HTTPS and ""Average Object Size"" of 100 KB with 100% Edge location traffic distribution in USA, based on the (old) calculator (https://calculator.s3.amazonaws.com/index.html)"
+,,,,,,,,
+,,,,,,,,
 Acknowledgement
 "* AWS Pricing Calculator provides only an estimate of your AWS fees and doesn't include any taxes that might apply. Your actual fees depend on a variety of factors, including your actual usage of AWS services."
